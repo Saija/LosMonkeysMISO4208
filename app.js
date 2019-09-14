@@ -2,9 +2,18 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 
 const app = express();
+
+const db = {
+  host: process.env.monkeys_test_db_host,
+  database: process.env.monkeys_test_db_name,
+  password: process.env.monkeys_test_db_pass,
+  user: process.env.monkeys_test_db_user,
+  port: process.env.monkeys_test_db_port
+}
 
 // Parsers for POST data
 app.use(bodyParser.json());
@@ -22,7 +31,11 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-
+// Mongoose configuration
+mongoose.Promise = require('bluebird');
+mongoose.connect(`mongodb://${db.user}:${db.password}@${db.host}:${db.port}/${db.database}`, { useNewUrlParser: true, promiseLibrary: require('bluebird') })
+  .then(() => console.log('connection to ' + db.database + ' succesful'))
+  .catch((err) => console.error(err));
 
 /**
  * Get port from environment and store in Express.
