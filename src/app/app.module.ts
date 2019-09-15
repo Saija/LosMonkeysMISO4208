@@ -17,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 // Import containers
-import { DefaultLayoutComponent } from './containers';
+import { DefaultLayoutComponent, MainLayoutComponent } from './containers';
+
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
@@ -25,7 +26,8 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
 const APP_CONTAINERS = [
-  DefaultLayoutComponent
+  DefaultLayoutComponent,
+  MainLayoutComponent
 ];
 
 import {
@@ -44,6 +46,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule } from '@angular/forms';
+import { CurrentUserService } from './services/current-user.service';
 
 @NgModule({
   imports: [
@@ -74,7 +77,7 @@ import { FormsModule } from '@angular/forms';
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }],
+  },  CurrentUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -31,14 +31,11 @@ export interface NavData {
 
 export const navItems: NavData[] = [
   {
-    name: 'Dashboard',
-    url: '/dashboard',
-    icon: 'icon-speedometer',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
-  },
+    name: 'Aplicaciones',
+    url: '/applications',
+    icon: 'icon-speedometer'
+  }
+  /*,
   {
     title: true,
     name: 'Theme'
@@ -270,5 +267,5 @@ export const navItems: NavData[] = [
     icon: 'icon-layers',
     variant: 'danger',
     attributes: { target: '_blank', rel: 'noopener' }
-  }
+  }*/
 ];

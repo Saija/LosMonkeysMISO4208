@@ -1,23 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../../../backend-server/models/User';
 import { Router } from '@angular/router';
+import { CurrentUserService } from '../../services/current-user.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: 'login.component.html'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   user: User = {
     username: '',
     password: ''
   };
   alertsDismiss: any = [];
+  viewOnLogin = "applications";
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private currentUserService: CurrentUserService
   ) { }
+
+
+  ngOnInit() {
+    this.currentUserService.getCurrentUser((user) => {
+      if (user !== null) {
+        this.router.navigate([this.viewOnLogin]);
+      }
+    })
+  }
 
   onLogin() {
     if (this.user.username === ''
@@ -30,7 +42,8 @@ export class LoginComponent {
       if (res['code'] !== 200) {
         this.addAlert('danger', `El usuario o la contraseña son incorrectos`);
       } else {
-        this.router.navigate(['dashboard']);
+        this.currentUserService.createCurrentUser(res['user']);
+        this.router.navigate([this.viewOnLogin]);
       }
     })
   }

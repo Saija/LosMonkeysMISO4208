@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "debug": "nodemon ./app.js & ng serve --proxy-config proxy.config.json",
+    "debug_backend": "nodemon ./app.js",
+    "debug_frontend": "ng serve --proxy-config proxy.config.json",
     "start": "ng build && node app.js",
     "build": "ng build",
     "test": "ng test",
@@ -40,6 +41,8 @@
     "mutationobserver-shim": "^0.3.3",
     "ng2-charts": "^2.3.0",
     "ngx-bootstrap": "^5.0.0",
+    "ngx-dexie": "^1.1.0",
+    "ngx-indexed-db": "^2.2.1",
     "ngx-perfect-scrollbar": "^8.0.0",
     "rxjs": "^6.5.2",
     "serve-favicon": "^2.5.0",
