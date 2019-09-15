@@ -1,1 +1,24 @@
 // Here you can add other styles
+.fill-space {
+  width: 100%;
+  height: calc(100vh - 75px);
+  margin-top: -75px;
+}
+
+.no-apps-bg {
+  background-image: url('../assets/img/bgs/no_apps_2.jpg');
+  background-size: cover;
+  padding: 100px;
+}
+
+.black-bg-jumbotron {
+  background-color: rgba($color: #000000, $alpha: 0.5)
+}
+
+.black-bg-jumbotron h1, .black-bg-jumbotron p{
+  color: white;
+}
+
+.black-bg-jumbotron hr {
+  border-top: 1px solid rgba(#ffffff, 0.1);
+}

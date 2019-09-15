@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -26,7 +26,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
 // Gravatar 
-import { GravatarModule } from  'ngx-gravatar';
+import { GravatarModule } from 'ngx-gravatar';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent,
@@ -50,10 +50,12 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { FormsModule } from '@angular/forms';
 import { CurrentUserService } from './services/current-user.service';
+import { ApplicationsService } from './services/applications.service';
 
 @NgModule({
   imports: [
     BrowserModule,
+    CommonModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AppAsideModule,
@@ -78,10 +80,14 @@ import { CurrentUserService } from './services/current-user.service';
     LoginComponent,
     RegisterComponent
   ],
-  providers: [{
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  },  CurrentUserService],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
+    CurrentUserService,
+    ApplicationsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
