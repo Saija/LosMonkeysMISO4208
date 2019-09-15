@@ -1,17 +1,19 @@
-import { Component, OnDestroy, Inject } from '@angular/core';
+import { Component, OnDestroy, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { navItems } from '../../_nav';
 import { CurrentUserService } from '../../services/current-user.service';
 import { Router } from '@angular/router';
+import { User } from '../../../../backend-server/models/User';
 
 
 @Component({
   selector: 'main-layout',
   templateUrl: './main-layout.component.html'
 })
-export class MainLayoutComponent implements OnDestroy {
+export class MainLayoutComponent implements OnDestroy, OnInit {
   public navItems = navItems;
   public sidebarMinimized = true;
+  public user: User = {};
   private changes: MutationObserver;
   public element: HTMLElement;
   constructor(
@@ -27,6 +29,16 @@ export class MainLayoutComponent implements OnDestroy {
       attributes: true,
       attributeFilter: ['class']
     });
+  }
+
+  ngOnInit() {
+    this.currentUserService.getCurrentUser((user) => {
+      if (user !== null) {
+        this.user = user;
+      } else {
+        this.user = {};
+      }
+    })
   }
 
   ngOnDestroy(): void {

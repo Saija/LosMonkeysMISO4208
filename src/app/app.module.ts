@@ -25,6 +25,9 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
+// Gravatar 
+import { GravatarModule } from  'ngx-gravatar';
+
 const APP_CONTAINERS = [
   DefaultLayoutComponent,
   MainLayoutComponent
@@ -64,7 +67,8 @@ import { CurrentUserService } from './services/current-user.service';
     ChartsModule,
     HttpClientModule,
     FormsModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    GravatarModule
   ],
   declarations: [
     AppComponent,
