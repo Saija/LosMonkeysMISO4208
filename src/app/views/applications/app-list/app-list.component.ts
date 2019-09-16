@@ -23,6 +23,7 @@ export class AppListComponent implements OnInit {
     this.isLoading = true;
     this.currentUserService.getCurrentUser((user) => {
       if (user === null) {
+        this.router.navigate(['/']);
         return;
       }
       console.log("user", user);

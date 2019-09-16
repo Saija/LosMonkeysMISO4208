@@ -15,6 +15,8 @@ import { CommonModule } from '@angular/common';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { ApplicationsService } from '../../services/applications.service';
 import { CurrentUserService } from '../../services/current-user.service';
+// Modal Component
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
@@ -27,7 +29,8 @@ import { CurrentUserService } from '../../services/current-user.service';
     BsDropdownModule,
     ButtonsModule.forRoot(),
     ProgressbarModule.forRoot(),
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    ModalModule.forRoot()
   ],
   declarations: [ ApplicationsComponent, NewApplicationComponent, NoAppsFoundComponent, AppListComponent ],
   providers: [

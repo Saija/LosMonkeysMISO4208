@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApplicationModel, User } from '../../../../../backend-server/models';
 import { CurrentUserService } from '../../../services/current-user.service';
 import { ApplicationsService } from '../../../services/applications.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-application',
@@ -16,7 +17,8 @@ export class NewApplicationComponent implements OnInit {
 
   constructor(
     private currentUserService: CurrentUserService,
-    private applicationsService: ApplicationsService
+    private applicationsService: ApplicationsService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -85,6 +87,10 @@ export class NewApplicationComponent implements OnInit {
       timeout: 5000,
       dismissible: true
     });
+  }
+
+  goBackToList():void {
+    this.router.navigate(['/applications']);
   }
 
 }

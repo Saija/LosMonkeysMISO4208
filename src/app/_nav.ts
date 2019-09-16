@@ -33,7 +33,7 @@ export const navItems: NavData[] = [
   {
     name: 'Aplicaciones',
     url: '/applications',
-    icon: 'icon-speedometer'
+    icon: 'icon-screen-smartphone'
   }
   /*
   ,

@@ -29,9 +29,6 @@ const routes: Routes = [
       {
         path: 'no-apps-found',
         component: NoAppsFoundComponent,
-        data: {
-          title: "Sin Apps"
-        }
       },
       {
         path: 'list',
