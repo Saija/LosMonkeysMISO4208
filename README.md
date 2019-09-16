@@ -1,10 +1,17 @@
+# LosMonkeysMISO4208
+Repositorio del Curso MISO 4208 del Grupo Los Monkeys
+
+Nuestra bitacora la puedes encontrar en :
+https://monkeys.gitbook.io/bitacora/
+
+
 # WebApp2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
 
 ## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:300/`. The app will automatically reload if you change any of the source files.
+Run `npm run debug_backend` for a dev backend server. This is going to run on `http://localhost:3000`.
+Run `npm run debug_frontend` for a dev frontend. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
