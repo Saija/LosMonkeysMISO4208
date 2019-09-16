@@ -35,6 +35,7 @@ export const navItems: NavData[] = [
     url: '/applications',
     icon: 'icon-speedometer'
   }
+  /*
   ,
   {
     title: true,
@@ -267,5 +268,5 @@ export const navItems: NavData[] = [
     icon: 'icon-layers',
     variant: 'danger',
     attributes: { target: '_blank', rel: 'noopener' }
-  }
+  }*/
 ];

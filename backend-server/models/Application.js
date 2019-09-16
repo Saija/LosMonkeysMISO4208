@@ -7,6 +7,7 @@ var ApplicationSchema = new mongoose.Schema({
   so: String,
   type: String,
   url: String,
+  status: {type: String, default: 'in_progress'},
   updated_date: { type: Date, default: Date.now },
   created_date: { type: Date, default: Date.now },
   user_id: {type: String, required: true}

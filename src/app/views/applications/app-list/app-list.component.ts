@@ -43,4 +43,8 @@ export class AppListComponent implements OnInit {
     })
   }
 
+  createNewApp() :void {
+    this.router.navigate(['applications/new']);
+  }
+
 }
