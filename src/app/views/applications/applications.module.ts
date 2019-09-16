@@ -12,6 +12,9 @@ import { NewApplicationComponent } from './new-application/new-application.compo
 import { NoAppsFoundComponent } from './no-apps-found/no-apps-found.component';
 import { AppListComponent } from './app-list/app-list.component';
 import { CommonModule } from '@angular/common';
+import { AlertModule } from 'ngx-bootstrap/alert';
+import { ApplicationsService } from '../../services/applications.service';
+import { CurrentUserService } from '../../services/current-user.service';
 
 
 
@@ -23,8 +26,13 @@ import { CommonModule } from '@angular/common';
     ChartsModule,
     BsDropdownModule,
     ButtonsModule.forRoot(),
-    ProgressbarModule.forRoot()
+    ProgressbarModule.forRoot(),
+    AlertModule.forRoot()
   ],
-  declarations: [ ApplicationsComponent, NewApplicationComponent, NoAppsFoundComponent, AppListComponent ]
+  declarations: [ ApplicationsComponent, NewApplicationComponent, NoAppsFoundComponent, AppListComponent ],
+  providers: [
+    CurrentUserService,
+    ApplicationsService
+  ],
 })
 export class ApplicationsModule { }
