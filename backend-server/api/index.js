@@ -9,5 +9,7 @@ router.get('/', function (req, res, next) {
 // Load here the whole api routes
 router.use("/user", require("./user"));
 router.use("/applications", require("./applications"));
+router.use("/upload-package", require("./upload-package"));
+router.use("/app-compilation", require("./app-compilation"));
 
 module.exports = router;

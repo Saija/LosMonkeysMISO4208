@@ -23,7 +23,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let app of applications">
+            <tr *ngFor="let app of applications" (click)="onApplicationSelected(app)">
               <td>{{app.name}}</td>
               <td>{{app.type}}</td>
               <td>{{app.so}}</td>

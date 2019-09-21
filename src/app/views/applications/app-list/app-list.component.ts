@@ -44,8 +44,13 @@ export class AppListComponent implements OnInit {
     })
   }
 
-  createNewApp() :void {
+  createNewApp(): void {
     this.router.navigate(['applications/new']);
+  }
+
+  onApplicationSelected(app: ApplicationModel): void {
+    console.log("Application selected", app);
+    this.router.navigate([`applications/app/${app._id}`]);
   }
 
 }

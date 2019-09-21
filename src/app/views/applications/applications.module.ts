@@ -15,9 +15,11 @@ import { CommonModule } from '@angular/common';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { ApplicationsService } from '../../services/applications.service';
 import { CurrentUserService } from '../../services/current-user.service';
+import { AppCompilationService } from '../../services/app-compilation.service';
 // Modal Component
 import { ModalModule } from 'ngx-bootstrap/modal';
-
+import { EditApplicationComponent } from './edit-application/edit-application.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 @NgModule({
@@ -30,12 +32,14 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ButtonsModule.forRoot(),
     ProgressbarModule.forRoot(),
     AlertModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    FileUploadModule
   ],
-  declarations: [ ApplicationsComponent, NewApplicationComponent, NoAppsFoundComponent, AppListComponent ],
+  declarations: [ ApplicationsComponent, NewApplicationComponent, NoAppsFoundComponent, AppListComponent, EditApplicationComponent ],
   providers: [
     CurrentUserService,
-    ApplicationsService
+    ApplicationsService,
+    AppCompilationService
   ],
 })
 export class ApplicationsModule { }

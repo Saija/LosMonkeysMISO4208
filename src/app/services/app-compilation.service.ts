@@ -1,11 +1,11 @@
 import { Injectable, ApplicationModule } from '@angular/core';
-import { ApplicationModel } from '../../../backend-server/models/Application';
+import { AppCompilationModel } from '../../../backend-server/models/AppCompilation';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApplicationsService {
+export class AppCompilationService {
 
   constructor(
     private http: HttpClient
@@ -13,10 +13,10 @@ export class ApplicationsService {
 
   }
 
-  getByUserID(userId: number, callback, errorCallback): void {
-    this.http.get(`/api/applications/byuserid/${userId}`).subscribe(
-      (res) => {
-        console.log("res", res);
+  getByAppId(appId: string, callback, errorCallback): void {
+    console.log("get by app id", appId);
+    this.http.get(`/api/app-compilation/${appId}`).subscribe(
+      (res: any) => {
         callback(res);
       },
       (err) => {
@@ -36,8 +36,8 @@ export class ApplicationsService {
     )
   }
 
-  create(app: ApplicationModel, callback): void {
-    this.http.post('/api/applications', app).subscribe(
+  create(compilation: AppCompilationModel, callback): void {
+    this.http.post('/api/app-compilation', compilation).subscribe(
       (res) => {
         callback(true);
       },
