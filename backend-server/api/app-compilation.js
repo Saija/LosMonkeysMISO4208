@@ -19,7 +19,7 @@ router.get('/:app_id/:version', function (req, res, next) {
 
 router.get('/:appId', function (req, res, next) {
   console.log("test");
-  AppCompilationModel.find({ app_id: req.params.appId }, function (err, applications) {
+  AppCompilationModel.find({ app_id: req.params.appId }).sort({created_date: -1}).exec(function (err, applications) {
     if (err) return next(err);
     res.json(applications);
   });

@@ -20,6 +20,7 @@ import { AppCompilationService } from '../../services/app-compilation.service';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { EditApplicationComponent } from './edit-application/edit-application.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import {FileSizeModule} from 'ngx-filesize';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { FileUploadModule } from 'ng2-file-upload';
     ProgressbarModule.forRoot(),
     AlertModule.forRoot(),
     ModalModule.forRoot(),
-    FileUploadModule
+    FileUploadModule,
+    FileSizeModule
   ],
   declarations: [ ApplicationsComponent, NewApplicationComponent, NoAppsFoundComponent, AppListComponent, EditApplicationComponent ],
   providers: [

@@ -11,7 +11,7 @@ import { AppCompilationService } from '../../../services/app-compilation.service
   styleUrls: ['./edit-application.component.scss']
 })
 export class EditApplicationComponent implements OnInit {
-  public uploader: FileUploader = new FileUploader({ url: '/api/upload-package', itemAlias: 'photo', autoUpload: false });
+  public uploader: FileUploader = new FileUploader({ url: '/api/upload-package', itemAlias: 'file', autoUpload: false });
 
   appId: string;
   currentApp: ApplicationModel;
@@ -90,7 +90,7 @@ export class EditApplicationComponent implements OnInit {
 
     let c = {
       app_id: this.appId,
-      file_name: this.appId + "_" + this.newCompilation.version + ".apk",
+      file_name: `${this.appId}_${this.newCompilation.version}${this.currentApp.so === 'android' ? '.apk' : '.ipa'}`,
       version: this.newCompilation.version
     }
 

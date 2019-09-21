@@ -53,8 +53,8 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6 mx-auto">
-      <div class="card mx-4" *ngIf="currentApp">
+    <div class="col-md-6 mx-auto" *ngIf="currentApp">
+      <div class="card mx-4" *ngIf="currentApp.type === 'mobile'">
         <div class="card-body p-4">
 
           <h1>Compilaciones</h1>
@@ -75,7 +75,7 @@
               <tr *ngFor="let c of compilations">
                 <td><span class="badge badge-warning">{{c.version}}</span>
                 </td>
-                <td>{{c.size}}</td>
+                <td>{{c.size | filesize}}</td>
                 <td>{{c.created_date | date: 'dd/MM/yyyy hh:mm:ss a'}}</td>
               </tr>
 
